@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Feedback Form</title>
+        <script src="https://code.jquery.com/jquery-3.6.1.js"  integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="  crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="toast show bg-warning container-fluid">
+            <span class="toast-body text-primary"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+        </div>
+
+        <h1>Feedback form</h1>
+        <hr/>
+
+        <div class="was-validate">
+            <div class="input-group">
+                <span class="input-group-text p-3 px-5">@</span>
+                <input id="txtEmail" type="email" class="form-control" placeholder="Enter a valid Email" required/>
+            </div>
+            <div class="input-group">
+                <span class="input-group-text p-4">Comments</span>
+                <textarea class="form-control"></textarea>
+            </div>
+            <hr/>
+            <input type="button" onclick="SubmitData()" value="submit feedback" class="btn btn-primary p-3"/>
+            <input type="button" onclick="ClearData()" value="clear" class="btn btn-danger p-3"/>
+        </div>
+        <hr/>
+        <div class="mydiv text-white mg-2 card ">
+        </div>
+
+        <script>
+            function SubmitData(){
+                var email= $("#txtEmail").val();
+                var feedback= $("textarea").val();
+                // alert("Feedback submitted by "+email+" comments: " +feedback);
+                // var newEntry = "<div class='text-success mb-2'>" + "Email: " +email+" | "+feedback + "</div>";
+                var newEntry = "<div>" + "Email: "+email+" | "+feedback + "</div>";
+                UpdateToast("Feedback submitted successfuly!");
+                //Add it to the div
+                $(".mydiv").append(newEntry);
+            }
+
+            function UpdateToast(msg){
+                $(".toast-body").text(msg);
+                $(".toast").fadeIn(2000).fadeOut(7000);
+            }
+
+            function ClearData(){
+                $("#txtEmail").val("");
+                $("textarea").val("");
+                UpdateToast("Cleared feedback!");
+            }
+        </script>
+    </body>
+</html>

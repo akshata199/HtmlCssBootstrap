@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.css"/>
+        <script src="bootstrap-5.0.2-dist/js/bootstrap.js"></script>
+        <script src="Fun.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3 bg-primary text-white"><a href="#" class="text-white">Home</a></div>
+                <div class="col-3 bg-success text-white"><a href="#" class="text-white">Orders</a></div>
+                <div class="col-3 bg-warning text-primary"><a href="#" class="text-success">Contact Us</a></div>
+                <div class="col-3 bg-danger text-warning"><a href="#" class="text-warning">Services</a></div>
+            </div>
+            <input id="txtuser" type="text" placeholder="Enter username"/>
+            <input id="txtpwd" type="password" placeholder="Enter password"/>
+            <br/>
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="onLogin('txtuser','txtpwd')">Login</button>
+                <button class="btn btn-warning ">AddUser</button>
+            </div>
+
+            <hr/>
+            <div id="toastDiv" class="toast hide">
+                <span id="status" class="toast-body text-success">
+                    Login Successful
+                </span>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </body>
+</html>
